@@ -102,6 +102,7 @@ public class PanelCalculadora extends JPanel {
 		private  boolean operador = false;
 		private  double  numero1;
 		private  double  numero2;
+		private  int     posicao;
 		
 		@Override
 		public void actionPerformed(ActionEvent e) {
