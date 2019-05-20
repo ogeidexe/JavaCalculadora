@@ -98,39 +98,64 @@ public class PanelCalculadora extends JPanel {
 	
 	
 	private class EscreverCusor implements ActionListener {
-		private String  saida;
-		private int    numero1;
+		private  boolean numero = true;
+		private  boolean operador = false;
+		private  double  numero1;
+		private  double  numero2;
 		
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			
 			//Caso algum botão for apertado essas funções escreve oque foi apertado na tela
 			
-			for(int i=0; i < numeros.length;i++) {
+			if(numero) {
 				
-				if(e.getSource() == numeros[i]  ) {
-					resultado.setEnabled(true);
+				for(int i=0; i < numeros.length;i++) {
 					
-					resultado.setText(resultado.getText() +" "+i);
-					
-					resultado.setEnabled(false);
-					
-				}	
+					if(e.getSource() == numeros[i]  ) {
+						resultado.setEnabled(true);
+						
+						resultado.setText(resultado.getText() +" "+i);
+						
+						resultado.setEnabled(false);
+						
+						
+						
+						operador = true;
+						
+					}	
+				}
+			
+				
+				
 			}
 		
 			//Caso algum botão for apertado essas funções escreve oque foi apertado na tela
 			
 			
-			for(int i=0;i<operadore.length-1;i++) {
+			if(operador) {
 				
-				if(e.getSource() == operadore[i]) {
+				
+				
+				for(int i=0;i<operadore.length-1;i++) {
 					
-					resultado.setVisible(true);
-					resultado.setText(resultado.getText() + " "+operadoreCaracter[i]);
+					if(e.getSource() == operadore[i]) {
+						numero =false;
+						
+						resultado.setVisible(true);
+						resultado.setText(resultado.getText() + " "+operadoreCaracter[i]);
+					
+						operador = false;
+					
+						numero =true;
+					}
+					
 				}
+				
 				
 			}
 		
+			
 			
 			
 			if(e.getSource() == operadore[5]) {
