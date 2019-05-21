@@ -9,6 +9,10 @@ import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
+
+import javafx.scene.layout.Pane;
+import jdk.nashorn.internal.runtime.arrays.NumericElements;
+
 public class PanelCalculadora extends JPanel {
 	private JButton       backSpace;
 	private JButton[]     numeros;
@@ -100,10 +104,12 @@ public class PanelCalculadora extends JPanel {
 	private class EscreverCusor implements ActionListener {
 		private  boolean numero = true;
 		private  boolean operador = false;
+		private  boolean sopodeEntraUmaVez=true;
+		private  boolean sopodeEntraUmaVez2=false;
 		private  double  numero1;
 		private  double  numero2;
-		private  int     posicao;
-		
+		private  double  num2;
+		private  char    opera;
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			
@@ -115,6 +121,14 @@ public class PanelCalculadora extends JPanel {
 					
 					if(e.getSource() == numeros[i]  ) {
 						resultado.setEnabled(true);
+			
+						
+						if(sopodeEntraUmaVez==false && sopodeEntraUmaVez==false) {
+							sopodeEntraUmaVez=true;
+							resultado.setText(null);
+							
+						}
+						
 						
 						resultado.setText(resultado.getText() +" "+i);
 						
@@ -134,7 +148,7 @@ public class PanelCalculadora extends JPanel {
 			//Caso algum botão for apertado essas funções escreve oque foi apertado na tela
 			
 			
-			if(operador) {
+			if(operador && sopodeEntraUmaVez) {
 				
 				
 				
@@ -142,6 +156,11 @@ public class PanelCalculadora extends JPanel {
 					
 					if(e.getSource() == operadore[i]) {
 						numero =false;
+						sopodeEntraUmaVez=false;
+						
+						numero1 = Double.parseDouble(resultado.getText() );
+						
+						opera = operadoreCaracter[i];
 						
 						resultado.setVisible(true);
 						resultado.setText(resultado.getText() + " "+operadoreCaracter[i]);
@@ -161,7 +180,38 @@ public class PanelCalculadora extends JPanel {
 			
 			if(e.getSource() == operadore[5]) {
 				
-							}
+				numero2 = Double.parseDouble(resultado.getText() );
+				
+				switch(opera) {
+					
+				case '+':{
+					numero1+=numero2;
+					break;
+				}
+				
+				case '-':{
+					numero1-=numero2;
+					break;
+				}
+				
+				case '*':{
+					numero1*=numero2;
+					break;
+				}
+				
+				case '/':{
+					numero1/=numero2;
+					break;
+				}
+				
+				
+				}
+				
+				
+				JOptionPane.showMessageDialog(null, numero1);
+				resultado.setText(null);
+				
+			}
 				
 				
 				
