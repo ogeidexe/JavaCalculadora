@@ -23,7 +23,7 @@ public class PanelCalculadora extends JPanel {
 	private char[]        operadoreCaracter;
 	public PanelCalculadora () {
 		
-		backSpace         =  new JButton("<="); 
+		//backSpace         =  new JButton("<="); 
 		numeros   		  =  new JButton[10];
 		operadore 		  =  new JButton[6] ;
 		operadoreCaracter =  new char[] {'/','*','-','+','.','='};
