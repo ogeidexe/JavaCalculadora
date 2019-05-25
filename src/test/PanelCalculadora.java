@@ -1,5 +1,5 @@
 package test;
-
+//kkkkkkkkkkkkk
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
@@ -39,7 +39,7 @@ public class PanelCalculadora extends JPanel {
 		
 		resultado.setEditable(false);
 		
-		//inicializa os meus botıes 
+		//inicializa os meus bot√µes 
 		for(int i=0;i< numeros.length;i++) {
 			
 			numeros[i] = new JButton(Integer.toString( i) );// Stancia
@@ -66,7 +66,7 @@ public class PanelCalculadora extends JPanel {
 		teclado.setLayout(new GridLayout(4,4)); // define o meu teclado como grid
 	
 		
-		//colocando os meus botıes no meu teclado
+		//colocando os meus bot√µes no meu teclado
 		teclado.add(numeros[7]);
 		teclado.add(numeros[8]);
 		teclado.add(numeros[9]);
@@ -113,7 +113,7 @@ public class PanelCalculadora extends JPanel {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			
-			//Caso algum bot„o for apertado essas funÁıes escreve oque foi apertado na tela
+			//Caso algum bot√£o for apertado essas fun√ß√µes escreve oque foi apertado na tela
 			
 			if(numero) {
 				
@@ -145,7 +145,7 @@ public class PanelCalculadora extends JPanel {
 				
 			}
 		
-			//Caso algum bot„o for apertado essas funÁıes escreve oque foi apertado na tela
+			//Caso algum bot√£o for apertado essas fun√ß√µes escreve oque foi apertado na tela
 			
 			
 			if(operador && sopodeEntraUmaVez) {
